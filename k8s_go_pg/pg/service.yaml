@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: pg
+  namespace: go-pg-app
+spec:
+  selector:
+    app: pg
+  ports:
+  - name: http
+    protocol: TCP
+    port: 5432
+    targetPort: 5432

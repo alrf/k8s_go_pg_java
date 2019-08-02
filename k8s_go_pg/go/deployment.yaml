@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: go
+  namespace: go-pg-app
+  labels:
+    app: go
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: go
+  template:
+    metadata:
+      labels:
+        app: go
+    spec:
+      containers:
+      - image: alrf/go-web-app:latest
+        name: go
+        envFrom:
+        - configMapRef:
+            name: common
+        - secretRef:
+            name: appsecrets            
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        imagePullPolicy: Always
+      restartPolicy: Always

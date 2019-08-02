@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: java
+  namespace: go-pg-app
+spec:
+  selector:
+    app: java
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8080
+    targetPort: 8080

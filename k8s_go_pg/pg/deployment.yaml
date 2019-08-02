@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: pg
+  namespace: go-pg-app
+spec:
+  selector:
+    matchLabels:
+      app: pg
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pg
+    spec:
+      containers:
+      - name: postgres
+        image: launcher.gcr.io/google/postgresql9
+        ports:
+        - containerPort: 5432
+        envFrom:
+        - secretRef:
+            name: appsecrets

@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: java
+  namespace: go-pg-app
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: java
+    spec:
+      containers:
+      - name: java
+        image: bitnami/java-example:0.0.1
+        ports:
+        - containerPort: 8080
+        command: ["java", "-jar", "jenkins.war"]
+        args: ["-Xmx1G"]
+      restartPolicy: Always

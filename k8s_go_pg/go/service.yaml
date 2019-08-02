@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: go
+  namespace: go-pg-app
+  annotations:
+    prometheus.io/scrape: 'true'  
+spec:
+  selector:
+    app: go
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
