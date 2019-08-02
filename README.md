@@ -1,6 +1,6 @@
 # Go app with Postgresql, Java and custom Prometheus metrics based on k8s.
 
-`k8s_go_app` dir - k8s manifests.
+`k8s_go_pg` dir - k8s manifests.
 
 All k8s manifests are in subfolders.
 
