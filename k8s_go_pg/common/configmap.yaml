@@ -5,4 +5,4 @@ metadata:
   name: common
   namespace: go-pg-app
 data:
-  PGHOST: pg
+  APP_PGHOST: pg

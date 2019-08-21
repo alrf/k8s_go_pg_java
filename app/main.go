@@ -44,7 +44,7 @@ func makeHandler(fn func(http.ResponseWriter, *http.Request, string)) http.Handl
 
 func main() {
 	password := os.Getenv("PGPASSWORD")
-	host := os.Getenv("PGHOST")
+	host := os.Getenv("APP_PGHOST")
 
 	// setup DB connection
 	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
